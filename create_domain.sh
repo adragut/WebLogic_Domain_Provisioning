@@ -1,17 +1,14 @@
 # ------------------------------------------------------------------------
-# -- DISCLAIMER:
-# --    This script is provided for educational purposes only. 
-# --    It is NOT supported by Oracle World Wide Technical Support.
-# --    The script has been tested and appears to work as intended.
-# --    You should always run new scripts on a test instance initially.
-# -- 
-# ------------------------------------------------------------------------
+# -- Created: alexandru.dragut@db.com	
+# -- Scope: This script has been create to automate WLS provisioning 12c. 
+# -- Version: 19.6.0.1
+##########################################################################
 #!/bin/sh
 #set -x
-source /Applications/OracleWebLogic/weblogic_domain/utilities/wlspassword.sh
+source /Users/adragut/OracleWeblogicDomain/utilities/wlspassword.sh
 
 #Delete domain if it already exists
-rm -rf /Applications/OracleWebLogic/weblogic_domain/wlsadmin
+rm -rf /Users/adragut/OracleWeblogicDomain/Domain_US
 
 source /Users/adragut/OracleWeblogic/Middleware/Oracle_Home/wlserver/server/bin/setWLSEnv.sh
-java weblogic.WLST create_domain.py $(cat '/Applications/OracleWebLogic/weblogic_domain/.wlspwd')
+java weblogic.WLST create_domain.py $(cat '/Users/adragut/OracleWeblogicDomain/.wlspwd')

@@ -1,6 +1,6 @@
-# Creates the domain when needed.
-# Created by alexandru.dragut@db.com
-# Version 19.5.0.1
+# Scope: Creates the domain when needed.
+# Created: alexandru.dragut@db.com
+# Version: 19.5.0.1
 # ------------------------------------------------------------------------
 
 # get operating system (for vars)
@@ -18,25 +18,22 @@ wlspath = os.getenv('WL_HOME')
 # variables
 templatefile = wlspath + '/common/templates/wls/wls.jar'
 templatename = 'base_domain'
-domainname = 'Domain_US'
-domainpath = '/Applications/OracleWebLogic/weblogic_domain/' + domainname
+domainname = 'Domain_US_3'
+domainpath = '/Users/adragut/OracleWeblogicDomain/' + domainname
 startmode = 'prod'
 username = 'weblogic'
 password = sys.argv[1]
 managed1name = 'US1'
 managed2name = 'US2'
-machine1name = 'machine1'
-machine2name = 'machine2'
-nodemgrport = 15556
-clustername = 'cluster1'
-#host1address = 'host01.example.com'
-#host2address = 'host02.example.com'
-
+machine1name = 'machine1_US'
+machine2name = 'machine2_US'
+nodemgrport = 25556
+clustername = 'cluster_US'
 host1address = 'MacBook-Air-adragut.local'
 host2address = 'MacBook-Air-adragut.local'
 
-adminport = 17001
-managedport = 17011
+adminport = 27001
+managedport = 27011
 
 
 # Load the base template
@@ -113,7 +110,7 @@ writeDomain(domainpath)
 closeTemplate()
 print '>>>Domain created successfully at ' + domainpath + '.'
 
-# create boot.properties for admin server 
+# create boot.properties for admin server / managed servers
 os.mkdir(domainpath + '/servers')
 os.mkdir(domainpath + '/servers/AdminServer')
 os.mkdir(domainpath + '/servers/AdminServer/security')
